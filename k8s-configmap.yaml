@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: stm32-urat-config
+data:
+  # Add any configuration files your app needs
+  app-config: |
+    # Configuration for STM32 UART Application
+    PORT: "8001"
+    DEBUG: "true"

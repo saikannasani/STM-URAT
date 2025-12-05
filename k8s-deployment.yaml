@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stm32-urat-deployment
+  labels:
+    app: stm32-urat
+spec:
+  replicas: 1  # Run 3 copies of the container
+  selector:
+    matchLabels:
+      app: stm32-urat
+  template:
+    metadata:
+      labels:
+        app: stm32-urat
+    spec:
+      containers:
+      - name: stm32-urat-container
+        image: stm32-urat:latest
+        imagePullPolicy: Never  # Use local image (change to IfNotPresent for registry)
+        ports:
+        - containerPort: 8001
+          

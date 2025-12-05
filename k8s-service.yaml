@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: stm32-urat-service
+  labels:
+    app: stm32-urat
+spec:
+  type: LoadBalancer  # Change to ClusterIP or NodePort if needed
+  ports:
+  - port: 8001
+    targetPort: 8001
+    protocol: TCP
+    name: http
+  selector:
+    app: stm32-urat
